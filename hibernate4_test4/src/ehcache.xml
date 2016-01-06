@@ -1,0 +1,49 @@
+<ehcache>
+
+    
+    <diskStore path="java.io.tmpdir"/>
+
+	
+	<!-- 设置缓存的默认数据过期策略 -->
+	
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+
+  
+	
+    <!-- 设定具体的命名缓存的数据过期策略，每个命名缓存代表一个缓存区域 
+    		缓存区域（region）：一个具有名称的缓存块，可以给每一个缓存块设置不同的缓存策略
+    		如果没有设置任何的缓存区域，则所有的缓存的对象，都将使用默认的缓存策略。即
+    		defaultCache
+    
+    	hibernate 在不同的缓存区域保存不同的类、集合。
+    		对于类而言，区域的名称是类名，如：com.zit.test.Customer
+    		对于集合而言，区域的名称是类名，加属性名，如：com.zit.test.Customer.orders
+    -->
+    <cache name="sampleCache1"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="true"
+        />
+
+    <!-- Sample cache named sampleCache2
+        This cache contains 1000 elements. Elements will always be held in memory.
+        They are not expired. -->
+    <cache name="sampleCache2"
+        maxElementsInMemory="1000"
+        eternal="true"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="0"
+        overflowToDisk="false"
+        /> -->
+
+    <!-- Place configuration for your caches following -->
+
+</ehcache>

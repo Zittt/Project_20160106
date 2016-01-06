@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-11-30 14:30:53 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.zit.hibernate.one2one.foreign">
+    <class name="Manager" table="MANAGERS">
+        <id name="mgrId" type="java.lang.Integer">
+            <column name="MGR_ID" />
+            <generator class="native" />
+        </id>
+        <property name="mgrName" type="java.lang.String">
+            <column name="MGR_NAME" />
+        </property>
+        
+        <!-- 映射1-1的关联关系 ：在对应是数据表中已经有外键了，使用one-to-one 进行映射-->
+        <one-to-one name="dept" class="Department"
+        	property-ref="mgr">
+        	
+        </one-to-one>
+        
+        
+    </class>
+</hibernate-mapping>

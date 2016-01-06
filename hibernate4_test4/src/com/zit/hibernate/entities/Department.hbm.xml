@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-12-13 15:56:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.zit.hibernate.entities.Department" table="S_DEPARTMENT">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <set name="emps" table="S_EMPLOYEE" inverse="true" lazy="true">
+            <key>
+                <column name="DEPT_ID" />
+            </key>
+            <one-to-many class="com.zit.hibernate.entities.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>
