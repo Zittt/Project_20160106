@@ -45,6 +45,12 @@ public class UnitTest {
 	
 	
 	@Test
+	public void test3() {
+		System.out.println("this is the change test...");
+	}
+	
+	
+	@Test
 	public void test1() {
 		Category cat1 = new Category();
 		cat1.setName("cat1");
